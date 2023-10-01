@@ -2,13 +2,16 @@ import os
 from pathlib import Path
 from decouple import config
 
-import pymysql 
+import pymysql
+from django.core.management.utils import get_random_secret_key
 pymysql.install_as_MySQLdb()
 
+secret_key = get_random_secret_key()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = config(secret_key)
 
 DEBUG = True
 
@@ -97,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
-DATETIME_FORMAT = '%d/%m/%Y %H:%M:%S' 
+DATETIME_FORMAT = '%d/%m/%Y %H:%M:%S'
 USE_I18N = False
 USE_L10N = False
 USE_TZ = False
