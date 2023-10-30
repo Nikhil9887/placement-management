@@ -150,3 +150,11 @@ def create_tpo(request):
     obj.set_password("password")
     obj.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+# def create_student(request):
+#     obj = StudentModel.objects.create(
+#         name="Student1", email="student1@gmail.com")
+#     obj.set_password("student1")
+#     obj.save()
+#     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
